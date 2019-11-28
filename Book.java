@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * 여기에 Book 클래스 설명을 작성하십시오.
  * 
@@ -7,39 +7,39 @@
  */
 public class Book
 {
-    private String title;
-    private String author;
     private int catalogueNumber;
+    private String author;
+    private String title;
+
     private Borrower borrower;
-    public Book(String title, int catalogueNumber)
-    {
-        
+
+    public Book(String title, String author, int catalogueNumber){
+        this.title = title;
+        this.author = author;
+        this.catalogueNumber = catalogueNumber;
+    }
+
+    public void display(){
+        System.out.println("Title :" + title);
+        System.out.println("Author :" + author);
+        System.out.println("catalogue Numer: " + catalogueNumber);
+
+    }
+
+    public void attachBorrower(Borrower borower){
+        this.borrower = borrower;
+    }
+
+    public void detachBorrower(Borrower borrower){
+        this.borrower = null;
     }
     
-    public void display()
-    {
-        
+    public int getcatalogueNumber(){
+        return this.catalogueNumber;
     }
     
-    public void attachBorrower(Borrower borrower)
-    {
-        
+    public Borrower getBorrower(){
+        return borrower;
     }
-    
-    public void dettachBorrower(Borrower borrower)
-    {
-        
-    }
-    
-    public int getcatalogueNumber()
-    {
-        
-    }
-    
-    public Borrower getBorrower()
-    {
-        
-    }
-    
-    
+
 }
