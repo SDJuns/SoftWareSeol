@@ -33,6 +33,7 @@ public class Library
     public void displayBooksForLoan(){
         Iterator it = registeredBooks.iterator();
         while(it.hasNext()){
+            Book book = (Book)it.next();
             if((book.getBorrower())==null){
                 
             }
@@ -54,10 +55,26 @@ public class Library
     } 
     
     public void LendOneBook(String name, int catalogueNumber){
-        
+        Book book = this.findBook(catalogueNumber);
+        Borrower borrower = this.findBorrower(name);
+        Loan loan = new Loan(book, borrower);
+        if(book!=null && borrower!=null){
+            book.attachBorrower(borrower);
+            borrower.attachBook(book);
+            loan.returndate();
+        }
+        else if(book==null){
+            System.out.println("책을 찾을 수 없음");
+        }
+        else if(borrower==null){
+            System.out.println("이용자를 찾을 수 없다!");
+        }
     }
-    
+
     public void returnOneBook(int catalogueNumber){
+        Book book = this.findBook(catalogueNumber);
+        Loan loan = this.findLoan(book);
+        loan.claer();
         
     }
 }
