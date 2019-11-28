@@ -11,34 +11,38 @@ public class Book
     private String author;
     private int catalogueNumber;
     private Borrower borrower;
-    public Book(String title, int catalogueNumber)
+    public Book(String title,String author, int catalogueNumber)
     {
-        
+        this.title = title;
+        this.author = author;
+        this.catalogueNumber = catalogueNumber;
     }
     
     public void display()
     {
-        
+        System.out.println("Title :" + title);
+        System.out.println("author :" + author);
+        System.out.println("catalogueNumber :" + catalogueNumber);
     }
     
     public void attachBorrower(Borrower borrower)
     {
-        
+        this.borrower = borrower;
     }
     
     public void dettachBorrower(Borrower borrower)
     {
-        
+        this.borrower = null;
     }
     
     public int getcatalogueNumber()
     {
-        
+        return this.catalogueNumber;
     }
     
     public Borrower getBorrower()
     {
-        
+        return borrower;
     }
     
     
