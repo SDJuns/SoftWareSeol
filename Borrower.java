@@ -9,8 +9,6 @@ public class Borrower
 {
     private String name;
     private LinkedList<Book> borrowedBooks;
-    private Borrower borrower;
-    private Book book;
 
     public Borrower(String name){
         this.name = name;

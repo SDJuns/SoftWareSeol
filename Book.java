@@ -11,9 +11,6 @@ public class Book
     private String author;
     private String title;
 
-    private Book book;
-    private Borrower borrower;
-
     public Book(String title, String author, int catalogueNumber){
         this.title = title;
         this.author = author;
