@@ -10,6 +10,7 @@ public class Library
     private String name;
     private TreeSet<Book> registeredBooks;
     private HashSet<Borrower> registeredBorrowers;
+    private LinkedList<Loan> registeredLoans;
 
     public Library(String name){
         this.name = name;
@@ -34,7 +35,7 @@ public class Library
         while(it.hasNext()){
             Book book = (Book)it.next();
             if((book.getBorrower())==null){
-                
+                book.display();
             }
             else{
                 book.display();
@@ -45,8 +46,11 @@ public class Library
     public void displayBooksForLoan(){
         Iterator it = registeredBooks.iterator();
         while(it.hasNext()){
-            Book book = (Book)it.next();1
+            Book book = (Book)it.next();
             if((book.getBorrower())==null){
+                
+            }
+            else{
                 book.display();
             }
         }
@@ -71,16 +75,9 @@ public class Library
     }
 
     public void returnOneBook(int catalogueNumber){
-        Book result = null;
-        Iterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (Book)it.next();
-            int bookcatalogueNumber =book.getcatalogueNumber();
-            if(bookcatalogueNumber==catalogueNumber){
-                
-            }
-
-        }
+        Book book = this.findOneBook(catalogueNumber);
+        Loan loan = this.findOneLoan();
+        loan.claer();
     }
     
 }
