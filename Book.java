@@ -11,8 +11,6 @@ public class Book
     private String author;
     private String title;
 
-   
-
     public Book(String title, String author, int catalogueNumber){
         this.title = title;
         this.author = author;
