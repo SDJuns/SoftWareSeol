@@ -8,23 +8,19 @@ import java.util.*;
 public class Borrower
 {
     private String name;
-    public HashSet<Borrower> br;
-    public void Borrower(String name){
-        
+    private LinkedList<Book> borrowedBooks;
+
+    public Borrower(String name){
+        this.name = name;
+        borrowedBooks = new LinkedList<Book>();
     }
-    public void attachBook(){
-    
+
+    public void attachBook(Book book){
+        borrowedBooks.add(book);
     }
-    public void detachBook(){
-    
+
+    public void detachBook(Book book){
+        borrowedBooks.remove(book);
     }
-    public int CompareTo(Object obj){
-        return 0;
-    }
-    public boolean equals(Object obj){
-        return obj;
-    }
-    public int hashCode(){
-        return 0;
-    }
+
 }
