@@ -35,7 +35,7 @@ public class Library
         while(it.hasNext()){
             Book book = (Book)it.next();
             if((book.getBorrower())==null){
-                
+                book.display();
             }
             else{
                 book.display();
@@ -49,6 +49,9 @@ public class Library
         while(it.hasNext()){
             Book book = (Book)it.next();
             if((book.getBorrower())==null){
+                
+            }
+            else{
                 book.display();
             }
         }
