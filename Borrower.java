@@ -9,18 +9,30 @@ public class Borrower
 {
     private String name;
     private LinkedList<Book> borrowedBooks;
+    private Borrower borrower;
+    private Book book;
 
     public Borrower(String name){
         this.name = name;
         borrowedBooks = new LinkedList<Book>();
     }
-
-    public void attachBook(Book book){
-        borrowedBooks.add(book);
+    
+    public void attachBorrower(Borrower borower){
+        this.borrower = borrower;
     }
 
-    public void detachBook(Book book){
-        borrowedBooks.remove(book);
+    public void detachBorrower(Borrower borrower){
+        this.borrower = null;
+    } 
+    
+    public void findBorrower(String name){
+        
+    }
+    
+    
+    
+    public void findborrower(String name){
+        
     }
 
 }

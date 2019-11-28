@@ -59,25 +59,17 @@ public class Library
     
 
     public void LeadOneBook(String name, int catalogueNumber){
-        Book book = this.findBook(catalogueNumber);
-        Borrower borrower = this.findBorrower(name);
+        Book book = book.findBook(catalogueNumber);
+        Borrower borrower = book.findBorrower(name);
+        Loan loan = new Loan(book, borrower);
+        registeredLoans.add(loan);
         
-        if(book!=null && borrower!=null){
-            book.attachBorrower(borrower);
-            borrower.attachBook(book);
-        }
-        else if(book==null){
-            System.out.println("책을 찾을 수 없음");
-        }
-        else if(borrower==null){
-            System.out.println("이용자를 찾을 수 없다!");
-        }
     }
 
     public void returnOneBook(int catalogueNumber){
-        Book book = this.findOneBook(catalogueNumber);
-        Loan loan = this.findOneLoan();
-        loan.claer();
+        Book book = this.findBook(catalogueNumber);
+        Loan loan = this.findLoan(book);
+        loan.clear();
     }
     
 }

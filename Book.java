@@ -11,8 +11,8 @@ public class Book
     private String author;
     private String title;
 
+    private Book book;
     private Borrower borrower;
-
 
     public Book(String title, String author, int catalogueNumber){
         this.title = title;
@@ -26,19 +26,16 @@ public class Book
         System.out.println("catalogue Numer: " + catalogueNumber);
 
     }
-
-    public void attachBorrower(Borrower borower){
-        this.borrower = borrower;
-    }
-
-    public void detachBorrower(Borrower borrower){
-        this.borrower = null;
-    }    
+    
     
     public int getcatalogueNumber(){
         return this.catalogueNumber;
     }
 
+    public void findbook(int catalogueNumber){
+        
+    }
+    
     public Borrower getBorrower(){
         return borrower;
     }
