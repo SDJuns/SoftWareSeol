@@ -12,7 +12,7 @@ public class Book
     private String title;
 
     private Borrower borrower;
-<<<<<<< HEAD
+
 
     public Book(String title, String author, int catalogueNumber){
         this.title = title;
@@ -33,55 +33,14 @@ public class Book
 
     public void detachBorrower(Borrower borrower){
         this.borrower = null;
-=======
-    public Book(String title,String author, int catalogueNumber)
-    {
-        this.title = title;
-        this.author = author;
-        this.catalogueNumber = catalogueNumber;
->>>>>>> cfee9ee7d13db2dc1ec2a746c597dd452e5a6778
-    }
+    }    
     
-<<<<<<< HEAD
     public int getcatalogueNumber(){
         return this.catalogueNumber;
-=======
-    public void display()
-    {
-        System.out.println("Title :" + title);
-        System.out.println("author :" + author);
-        System.out.println("catalogueNumber :" + catalogueNumber);
->>>>>>> cfee9ee7d13db2dc1ec2a746c597dd452e5a6778
     }
-    
-<<<<<<< HEAD
+
     public Borrower getBorrower(){
         return borrower;
-=======
-    public void attachBorrower(Borrower borrower)
-    {
-        this.borrower = borrower;
->>>>>>> cfee9ee7d13db2dc1ec2a746c597dd452e5a6778
-    }
-<<<<<<< HEAD
-
-=======
-    
-    public void dettachBorrower(Borrower borrower)
-    {
-        this.borrower = null;
     }
     
-    public int getcatalogueNumber()
-    {
-        return this.catalogueNumber;
-    }
-    
-    public Borrower getBorrower()
-    {
-        return borrower;
-    }
-    
-    
->>>>>>> cfee9ee7d13db2dc1ec2a746c597dd452e5a6778
 }
