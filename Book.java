@@ -10,7 +10,8 @@ public class Book
     private int catalogueNumber;
     private String author;
     private String title;
-
+    private Borrower borrower;
+    
     public Book(String title, String author, int catalogueNumber){
         this.title = title;
         this.author = author;
@@ -34,7 +35,7 @@ public class Book
     }
     
     public Borrower getBorrower(){
-        return borrower;
+        return this.borrower;
     }
     
 }
