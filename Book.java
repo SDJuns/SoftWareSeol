@@ -12,7 +12,11 @@ public class Book
     private String title;
     private Borrower borrower;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4
 =======
     
 >>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4

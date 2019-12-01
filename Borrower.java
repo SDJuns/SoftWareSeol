@@ -10,9 +10,16 @@ public class Borrower
     private String name;
     private LinkedList<Book> borrowedBooks;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private Book book; 
 =======
 <<<<<<< HEAD
+    private Book book;
+    public Borrower(String name,Book book){
+=======
+
+>>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4
+=======
     private Book book;
     public Borrower(String name,Book book){
 =======
@@ -24,7 +31,10 @@ public class Borrower
 >>>>>>> 3fb19f1acd90df24ba5f694554485e10bea40a2e
         this.name = name;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4
         this.book = book;
         borrowedBooks = new LinkedList<Book>();
     }
