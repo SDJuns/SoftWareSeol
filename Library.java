@@ -65,6 +65,7 @@ public class Library
                 break;
             }
         }
+        
 
         Iterator it2 = registeredBorrowers.iterator();
         while(it2.hasNext()){

@@ -9,36 +9,13 @@ public class Borrower
 {
     private String name;
     private LinkedList<Book> borrowedBooks;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private Book book; 
-=======
-<<<<<<< HEAD
-    private Book book;
-    public Borrower(String name,Book book){
-=======
-
->>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4
-=======
-    private Book book;
-    public Borrower(String name,Book book){
-=======
-
->>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4
-
 
     public Borrower(String name){
->>>>>>> 3fb19f1acd90df24ba5f694554485e10bea40a2e
         this.name = name;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4
-        this.book = book;
-        borrowedBooks = new LinkedList<Book>();
+ 
     }
-    
+
     public void attachBorrower(Borrower borower){
         this.book = book;
     }
@@ -46,27 +23,23 @@ public class Borrower
     public void detachBorrower(Borrower borrower){
         this.book = null;
     } 
-    
+
     public void findBorrower(String name){
->>>>>>> e33b205c47988e5f08594e9a6c105e361f0ee3e4
-        
+
     }
-    
+
     public void attachBook(Book book){
         this.book = book;
     }
-    
+
     public void detachBorrower(Book book){
         this.book = null;
     } 
-    
+
     public String getName(){
         return this.name;
     }
-    
-    
-    public void findborrower(String name){
-        
-    }
 
+    public void findborrower(String name){
+    }
 }
