@@ -33,12 +33,12 @@ public class Library
     public void displayBooksOnLoan(){
         Iterator it = registeredBooks.iterator();
         while(it.hasNext()){
-            
+            Book book = (Book)it.next();
             if((book.getBorrower())==null){
                 book.display();
             }
             else{
-                book.display();
+                
             }
         }
     }
@@ -48,8 +48,7 @@ public class Library
         while(it.hasNext()){
             Book book = (Book)it.next();
             if((book.getBorrower())==null){
-                  Book book = book;
-                  break;
+                  
             }
             else{
                 book.display();
@@ -62,21 +61,22 @@ public class Library
         while(it.hasNext()){
             Book book = (Book)it.next();
             if((book.getCatalogueNumber() == catalogueNumber)){
-                Book book = book;
+                Book findedbook = book;
                 break;
             }
         }
+        
 
-        Iterator it = registeredBorrowers.iterator();
-        while(it.hasNext()){
-            Borrower borrower = (Borrower)it.next();
+        Iterator it2 = registeredBorrowers.iterator();
+        while(it2.hasNext()){
+            Borrower borrower = (Borrower)it2.next();
             if((borrower.getName() == name)){
-                Borrower borrower = borrower;
+                Borrower findedborrower = borrower;
                 break;
             }
         }
 
-        if(book!=null && borrower!=null){
+        if(findedbook!=null && findedborrower!=null){
             if(book.getborrower() == null && borrower.getbook() == null) {
                 Loan loan = new Loan(book, borrower);
                 book.attachBorrower(borrower);
@@ -96,9 +96,9 @@ public class Library
     }
 
     public void returnOneBook(int catalogueNumber, String name){
-        lterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (book)it.next();
+        Iterator it3 = registeredBooks.iterator();
+        while(it3.hasNext()){
+            Book book = (Book)it3.next();
             if(book.getCatalogueNumber() == catalogueNumber){
                 
                 
@@ -129,3 +129,7 @@ public class Library
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4ffe41ff2401f1ed22174d951073c095de1ba97
