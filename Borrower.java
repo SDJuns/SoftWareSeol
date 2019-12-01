@@ -9,15 +9,15 @@ public class Borrower
 {
     private String name;
     private LinkedList<Book> borrowedBooks;
-<<<<<<< HEAD
+
     private Book book;
     public Borrower(String name,Book book){
-=======
 
 
 
+    }
     public Borrower(String name){
->>>>>>> 3fb19f1acd90df24ba5f694554485e10bea40a2e
+
         this.name = name;
         this.book = book;
         borrowedBooks = new LinkedList<Book>();
