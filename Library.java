@@ -71,13 +71,13 @@ public class Library
         while(it.hasNext()){
             Borrower borrower = (Borrower)it.next();
             if((borrower.getName() == name)){
-                Borrower borrower = borrower;
+                Borrower borrower1 = borrower;
                 break;
             }
         }
 
-        if(book!=null && borrower!=null){
-            if(book.getborrower() == null && borrower.getbook() == null) {
+        if(book!=null && borrower1!=null){
+            if(book.getborrower() == null && borrower1.getbook() == null) {
                 Loan loan = new Loan(book, borrower);
                 book.attachBorrower(borrower);
                 borrower.attachBook(book);
@@ -101,7 +101,7 @@ public class Library
             Book book = (book)it.next();
             if(book.getCatalogueNumber() == catalogueNumber){
                 
-                
+                break;
             }
         }
         
@@ -109,16 +109,15 @@ public class Library
         while(it.hasNext()){
             Borrower borrower = (Borrower)it.next();
             if((borrower.getName() == name)){
-
+                
                 break;
             }
         }
         
         if(book!=null && borrower!=null){
-            if(book.getborrower() == null && borrower.getbook() == null) {
-                book.attachBorrower(borrower);
-                borrower.attachBook(book);
-                loan.returndate();
+            if(book.getborrower() != null && borrower.getbook() != null) {
+                book.detachBorrower(borrower);
+                borrower.detachBook(book);
             }
         }
         else if(book==null){
@@ -128,4 +127,5 @@ public class Library
             System.out.println("이용자를 찾을 수 없습니다.");
         }
     }
+}
 
