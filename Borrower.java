@@ -9,22 +9,13 @@ public class Borrower
 {
     private String name;
     private LinkedList<Book> borrowedBooks;
-<<<<<<< HEAD
+
 
     private Book book;
     public Borrower(String name,Book book){
 
-
-=======
-    private Book book; 
->>>>>>> e4ffe41ff2401f1ed22174d951073c095de1ba97
-
     }
     public Borrower(String name){
-<<<<<<< HEAD
-
-=======
->>>>>>> e4ffe41ff2401f1ed22174d951073c095de1ba97
         this.name = name;
  
     }
