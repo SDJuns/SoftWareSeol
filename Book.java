@@ -6,7 +6,7 @@ import java.lang.*;
  * @author (2018315009 황훈태, 2018315025 신동준, 2018315031 박성현) 
  * @version (2019-11-28)
  */
-public class Book implements Comparable
+public class Book implements Comparable<Book>
 {
     private int catalogueNumber;
     private String author;
@@ -47,10 +47,10 @@ public class Book implements Comparable
         return this.borrower;
     }
     
-    public int compareTo(Object Book) {
+    public int compareTo(Book book) {
         // 오름차순 
         //return this.price - compareBook.price;
         // 내림차순 
-        return (this.catalogueNumber - catalogueNumber);
+        return 0;
     }
 }

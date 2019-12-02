@@ -10,13 +10,13 @@ public class MyApp
     public static void main(String[] args)
     {
         Library li = new Library();
-        li.registerOneBook("책", "박성현", 1234);
+        li.registerOneBook("책", "박성현", 1);
         li.displayBooksOnLoan();
         
-        li.registerOneBook("책2", "박성현1", 123455);
+        li.registerOneBook("책2", "박성현1", 12);
         li.displayBooksOnLoan();
         
-        li.registerOneBook("책3", "박성현2", 123466);
+        li.registerOneBook("책3", "박성현2", 123);
         li.displayBooksOnLoan();
     }
 }

@@ -26,7 +26,7 @@ public class Library
 
     public void registerOneBook(String title, String author, int catalogueNumber){
         Book book = new Book(title, author, catalogueNumber);
-        book.compareTo(catalogueNumber);
+        book.compareTo(book);
         registeredBooks.add(book);
     }
 
