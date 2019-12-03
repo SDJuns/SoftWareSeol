@@ -70,7 +70,7 @@ public class Library
         while(itbook.hasNext()){
             Book book = (Book)itbook.next();
             if((book.getCatalogueNumber() == catalogueNumber)){
-                this.book= book;
+                this.book = book;
                 break;
             }
         }
@@ -91,8 +91,8 @@ public class Library
             if(this.book.getborrower() == null && this.borrower.getBook() == null) {
                 Loan loan = new Loan(book, borrower);
                 registeredLoans.add(loan);
-                this.book.attachBorrower(this.borrower);
-                this.borrower.attachBook(this.book);
+                this.book.attachBorrower(loan.getBorrower());
+                this.borrower.attachBook(loan.getBook());
                 System.out.println("등록 완료");
                 //loan.returndate();
             }
@@ -107,9 +107,9 @@ public class Library
     }
 
     public void returnOneBook(int catalogueNumber){
-        Iterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (Book)it.next();
+        Iterator itbook = registeredBooks.iterator();
+        while(itbook.hasNext()){
+            Book book = (Book)itbook.next();
             if(book.getCatalogueNumber() == catalogueNumber){
                 this.book = book;
                 System.out.println("책찾음" + this.book.getCatalogueNumber());
@@ -117,14 +117,14 @@ public class Library
             }
         }
 
-        Iterator it2 = registeredLoans.iterator();
-        while(it2.hasNext()){
-            Loan loan = (Loan)it2.next();
+        Iterator itloan = registeredLoans.iterator();
+        while(itloan.hasNext()){
+            Loan loan = (Loan)itloan.next();
             if(loan.getBorrower() == this.book.getBorrower()){
                 System.out.println("들어왔나");
                 this.loan = loan;
-                this.book.detachBorrower(this.loan.getBorrower());
-                this.loan.getBorrower().detachBook(this.book);
+                this.loan.getBook().detachBorrower(this.loan.getBorrower());
+                this.loan.getBorrower().detachBook(this.loan.getBook());
                 System.out.println("반납 완료");
                 break;
             }
