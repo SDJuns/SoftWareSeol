@@ -23,11 +23,7 @@ public class Library
         registeredBooks = new TreeSet<Book>();
         registeredBorrowers = new HashSet<Borrower>();
         registeredLoans = new HashSet<Loan>();
-<<<<<<< HEAD
-
-=======
         resgiteredReservations = new HashSet<Reservation>();
->>>>>>> 4c425e5599ec363d60c44b00e71ffee16b08a9dd
     }
 
     public void registerOneBorrower(String name){
@@ -35,7 +31,6 @@ public class Library
         while(itborrower.hasNext()){
             Borrower borrower = (Borrower)itborrower.next();
             if(name.equals(borrower.getName())){
-<<<<<<< HEAD
                 boolean DC = true;
             }
         }
@@ -45,184 +40,177 @@ public class Library
         }
         else if(DC == true){
             System.out.println("Same User on registeration.");
-=======
-                this.check = true;
-            }
-        }
-        if(this.check == false){
-            Borrower borrower = new Borrower(name);
-            registeredBorrowers.add(borrower);
-            System.out.println("사용자 등록이 완료되었습니다.");
-        }
-        else if(this.check == true){
-            System.out.println("이미 등록된 사용자 입니다.");
-            check = false;
->>>>>>> 4c425e5599ec363d60c44b00e71ffee16b08a9dd
+            this.check = true;
         }
     }
-
-    public void registerOneBook(String title, String author, int catalogueNumber){
-        Book book = new Book(title, author, catalogueNumber);
-        book.compareTo(book);
-        registeredBooks.add(book);
+    if(this.check == false){
+        Borrower borrower = new Borrower(name);
+        registeredBorrowers.add(borrower);
+        System.out.println("사용자 등록이 완료되었습니다.");
     }
-
-    //Loan객체와 관련이 있는지 물어보기
-    //관련있으면 보여주기 없으면 안보여주기
-    public void displayBooksForLoan(){
-        Iterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (Book)it.next();
-<<<<<<< HEAD
-            if((book.getBorrower())==null){
-                book.display();
-            }
-            else{
-
-            }
-        }
+    else if(this.check == true){
+        System.out.println("이미 등록된 사용자 입니다.");
+        check = false;
     }
+}
 
-    public void displayBooksOnLoan(){
-        Iterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (Book)it.next();
-            if((book.getBorrower())==null){
+public void registerOneBook(String title, String author, int catalogueNumber){
+Book book = new Book(title, author, catalogueNumber);
+book.compareTo(book);
+registeredBooks.add(book);
+}
 
-            }
-=======
-            if((book.getBorrower())==null && book.getRsvBorrowerName()==null){
-                book.display();
-                System.out.println();
-            }
-            else{
-                
-            }
-        }
-    }
+//Loan객체와 관련이 있는지 물어보기
+//관련있으면 보여주기 없으면 안보여주기
+public void displayBooksForLoan(){
+Iterator it = registeredBooks.iterator();
+while(it.hasNext()){
+Book book = (Book)it.next();
 
-    public void displayBooksOnLoan(){
-        Iterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (Book)it.next();
-            if((book.getBorrower())==null){
-                
-            }
-            
->>>>>>> 4c425e5599ec363d60c44b00e71ffee16b08a9dd
-            else{
-                book.display();
-                book.rsvDisplay();
-            }
-        }
-    }
+if((book.getBorrower())==null){
+book.display();
+}
+else{
 
-    public void LendOneBook(String name, int catalogueNumber){
-        Iterator itbook = registeredBooks.iterator();
-        while(itbook.hasNext()){
-            Book book = (Book)itbook.next();
-            if((book.getCatalogueNumber() == catalogueNumber)){
-                this.book = book;
-                break;
-            }
-        }
+}
+}
+}
 
-        Iterator itborrower = registeredBorrowers.iterator();
-        while(itborrower.hasNext()){
-            Borrower borrower = (Borrower)itborrower.next();
-            if(name.equals(borrower.getName())){
-                this.borrower = borrower;
-                System.out.println(this.borrower.getName());
-                break;
-            }
-        }
+public void displayBooksOnLoan(){
+Iterator it = registeredBooks.iterator();
+while(it.hasNext()){
+Book book = (Book)it.next();
+if((book.getBorrower())==null){
 
-        if(this.book!=null && this.borrower!=null){
-            if(this.book.getborrower() == null && this.borrower.getBook() == null) {
-                Loan loan = new Loan(book, borrower);
-                registeredLoans.add(loan);
-                this.book.attachBorrower(loan.getBorrower());
-                this.borrower.attachBook(loan.getBook());
-                System.out.println("********************");
-                System.out.println("대출자 : " + this.borrower.getName());
-                System.out.println("책 정보");
-                this.book.display();
-                System.out.println("\n대출 등록 완료되었습니다.");
-                book.returndate();
-                System.out.println("********************");
-            }
-        }
-        else if(this.book==null){
-            System.out.println("책을 찾을 수 없습니다.");
-        }
-        else if(this.book.getBorrower() != null){
-            System.out.println("이미 대출중인 책입니다.");
-        }
-        else if(this.borrower==null){
-            System.out.println("이용자를 찾을 수 없습니다.");
-        }
-        else if(this.borrower.getBook() != null){
-            System.out.println("이미 책을 대출하셨습니다.");
-        }
-    }
+}
 
-    public void returnOneBook(int catalogueNumber){
-        Iterator itbook = registeredBooks.iterator();
-        while(itbook.hasNext()){
-            Book book = (Book)itbook.next();
-            if(book.getCatalogueNumber() == catalogueNumber){
-                this.book = book;
-<<<<<<< HEAD
-                System.out.println("findtheBook" + this.book.getCatalogueNumber());
-=======
->>>>>>> 4c425e5599ec363d60c44b00e71ffee16b08a9dd
-                break;
-            }
-        }
+if((book.getBorrower())==null && book.getRsvBorrowerName()==null){
+book.display();
+System.out.println();
+}
+else{
 
-        Iterator itloan = registeredLoans.iterator();
-        while(itloan.hasNext()){
-            Loan loan = (Loan)itloan.next();
-            if(loan.getBorrower() == this.book.getBorrower()){
-                System.out.println("****************"); 
-                System.out.println("책을 반납합니다. "); 
-                this.loan = loan;
-                this.loan.getBook().detachBorrower(this.loan.getBorrower());
-                this.loan.getBorrower().detachBook(this.loan.getBook());
-                registeredLoans.remove(this.loan);
-                System.out.println("반납 완료되었습니다.");
-                System.out.println("****************"); 
-                break;
-            }
-        }
-        if(this.book==null){
-            System.out.println("책을 찾을 수 없습니다.");
-        }
-    }
+}
+}
+}
 
-    public void reservation(String name, int catalogueNumber){
-        Iterator itloan = registeredLoans.iterator();
-        while(itloan.hasNext()){
-            Loan loan = (Loan)itloan.next();
-            if((loan.getBook().getCatalogueNumber() == catalogueNumber) && loan.getReservation() == null){
-                Reservation reservation = new Reservation(name, catalogueNumber);
+public void displayBooksOnLoan(){
+Iterator it = registeredBooks.iterator();
+while(it.hasNext()){
+Book book = (Book)it.next();
+if((book.getBorrower())==null){
 
-                book.ReservationattachBorrower(reservation.getName());
-                borrower.ReservationattachBorrower(reservation.getCatalogueNumber());
-                loan.ReservationattachReservation(reservation);
+}
 
-                resgiteredReservations.add(reservation);
-                RSV = true;
-            }
-        }
-        if(this.RSV == true){
-            System.out.println("예약이 완료되었습니다.");
-            this.RSV = false;
-        }
-        else if(this.RSV == false){
-            System.out.println("대출중인 책이 아니거나 등록된 책이 아닙니다.");
-        }
-    }
+else{
+book.display();
+book.rsvDisplay();
+}
+}
+}
+
+public void LendOneBook(String name, int catalogueNumber){
+Iterator itbook = registeredBooks.iterator();
+while(itbook.hasNext()){
+Book book = (Book)itbook.next();
+if((book.getCatalogueNumber() == catalogueNumber)){
+this.book = book;
+break;
+}
+}
+
+Iterator itborrower = registeredBorrowers.iterator();
+while(itborrower.hasNext()){
+Borrower borrower = (Borrower)itborrower.next();
+if(name.equals(borrower.getName())){
+this.borrower = borrower;
+System.out.println(this.borrower.getName());
+break;
+}
+}
+
+if(this.book!=null && this.borrower!=null){
+if(this.book.getborrower() == null && this.borrower.getBook() == null) {
+Loan loan = new Loan(book, borrower);
+registeredLoans.add(loan);
+this.book.attachBorrower(loan.getBorrower());
+this.borrower.attachBook(loan.getBook());
+System.out.println("********************");
+System.out.println("대출자 : " + this.borrower.getName());
+System.out.println("책 정보");
+this.book.display();
+System.out.println("\n대출 등록 완료되었습니다.");
+book.returndate();
+System.out.println("********************");
+}
+}
+else if(this.book==null){
+System.out.println("책을 찾을 수 없습니다.");
+}
+else if(this.book.getBorrower() != null){
+System.out.println("이미 대출중인 책입니다.");
+}
+else if(this.borrower==null){
+System.out.println("이용자를 찾을 수 없습니다.");
+}
+else if(this.borrower.getBook() != null){
+System.out.println("이미 책을 대출하셨습니다.");
+}
+}
+
+public void returnOneBook(int catalogueNumber){
+Iterator itbook = registeredBooks.iterator();
+while(itbook.hasNext()){
+Book book = (Book)itbook.next();
+if(book.getCatalogueNumber() == catalogueNumber){
+this.book = book;
+break;
+}
+}
+
+Iterator itloan = registeredLoans.iterator();
+while(itloan.hasNext()){
+Loan loan = (Loan)itloan.next();
+if(loan.getBorrower() == this.book.getBorrower()){
+System.out.println("****************"); 
+System.out.println("책을 반납합니다. "); 
+this.loan = loan;
+this.loan.getBook().detachBorrower(this.loan.getBorrower());
+this.loan.getBorrower().detachBook(this.loan.getBook());
+registeredLoans.remove(this.loan);
+System.out.println("반납 완료되었습니다.");
+System.out.println("****************"); 
+break;
+}
+}
+if(this.book==null){
+System.out.println("책을 찾을 수 없습니다.");
+}
+}
+
+public void reservation(String name, int catalogueNumber){
+Iterator itloan = registeredLoans.iterator();
+while(itloan.hasNext()){
+Loan loan = (Loan)itloan.next();
+if((loan.getBook().getCatalogueNumber() == catalogueNumber) && loan.getReservation() == null){
+Reservation reservation = new Reservation(name, catalogueNumber);
+
+book.ReservationattachBorrower(reservation.getName());
+borrower.ReservationattachBorrower(reservation.getCatalogueNumber());
+loan.ReservationattachReservation(reservation);
+
+resgiteredReservations.add(reservation);
+RSV = true;
+}
+}
+if(this.RSV == true){
+System.out.println("예약이 완료되었습니다.");
+this.RSV = false;
+}
+else if(this.RSV == false){
+System.out.println("대출중인 책이 아니거나 등록된 책이 아닙니다.");
+}
+}
 
 }
 
