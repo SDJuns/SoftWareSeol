@@ -9,30 +9,23 @@ public class Borrower
 {
     private String name;
     private LinkedList<Book> borrowedBooks;
+<<<<<<< HEAD
     private Book book; 
 
     publoic Borrwer(String name){
+=======
+    private Book book;
+    
+    public Borrower(String name){
+>>>>>>> 57abc4df9d77c3ce0f89aee3d47bf2c9b12f292a
         this.name = name;
- 
-    }
-
-    public void attachBorrower(Borrower borower){
-        this.book = book;
-    }
-
-    public void detachBorrower(Borrower borrower){
-        this.book = null;
-    } 
-
-    public void findBorrower(String name){
-
     }
 
     public void attachBook(Book book){
         this.book = book;
     }
 
-    public void detachBorrower(Book book){
+    public void detachBook(Book book){
         this.book = null;
     } 
 
@@ -44,6 +37,7 @@ public class Borrower
         return this.book;
     }
 
-    public void findborrower(String name){
+    public Book getBook(){
+        return this.book;
     }
 }
