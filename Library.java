@@ -6,7 +6,7 @@ import java.lang.*;
  * @author (2018315009 황훈태, 2018315025 신동준, 2018315031 박성현) 
  * @version (2019-11-28)
  */
-public class Library 
+public class Library
 {
     private String name;
     private TreeSet<Book> registeredBooks;
@@ -15,19 +15,31 @@ public class Library
     private Book book;
     private Borrower borrower;
     private Loan loan;
+    private boolean DC = false;
 
     public Library(){
         // this.name = name;
         registeredBooks = new TreeSet<Book>();
         registeredBorrowers = new HashSet<Borrower>();
         registeredLoans = new HashSet<Loan>();
+
     }
 
     public void registerOneBorrower(String name){
-        Borrower borrower = new Borrower(name);
-        System.out.println(borrower.getName());
-        registeredBorrowers.add(borrower);
-        System.out.println("사용자 등록이 완료되었습니다.");
+        Iterator itborrower = registeredBorrowers.iterator();
+        while(itborrower.hasNext()){
+            Borrower borrower = (Borrower)itborrower.next();
+            if(name.equals(borrower.getName())){
+                boolean DC = true;
+            }
+        }
+        if(DC == false){
+            registeredBorrowers.add(borrower);
+            System.out.println("사용자 등록이 완료되었습니다.");
+        }
+        else if(DC == true){
+            System.out.println("Same User on registeration.");
+        }
     }
 
     public void registerOneBook(String title, String author, int catalogueNumber){
@@ -38,25 +50,24 @@ public class Library
 
     //Loan객체와 관련이 있는지 물어보기
     //관련있으면 보여주기 없으면 안보여주기
-    public void displayBooksOnLoan(){
-        Iterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (Book)it.next();
-            if((book.getBorrower())==null){
-                book.display();
-            }
-            else{
-
-            }
-        }
-    }
-
-
     public void displayBooksForLoan(){
         Iterator it = registeredBooks.iterator();
         while(it.hasNext()){
             Book book = (Book)it.next();
             if((book.getBorrower())==null){
+                book.display();
+            }
+            else{
+
+            }
+        }
+    }
+
+    public void displayBooksOnLoan(){
+        Iterator it = registeredBooks.iterator();
+        while(it.hasNext()){
+            Book book = (Book)it.next();
+            if((book.getBorrower())==null){
 
             }
             else{
@@ -65,7 +76,7 @@ public class Library
         }
     }
 
-    public void LeadOneBook(String name, int catalogueNumber){
+    public void LendOneBook(String name, int catalogueNumber){
         Iterator itbook = registeredBooks.iterator();
         while(itbook.hasNext()){
             Book book = (Book)itbook.next();
@@ -77,7 +88,6 @@ public class Library
 
         Iterator itborrower = registeredBorrowers.iterator();
         while(itborrower.hasNext()){
-            System.out.println("들어감");
             Borrower borrower = (Borrower)itborrower.next();
             if(name.equals(borrower.getName())){
                 this.borrower = borrower;
@@ -86,7 +96,7 @@ public class Library
                 break;
             }
         }
-        
+
         if(this.book!=null && this.borrower!=null){
             if(this.book.getborrower() == null && this.borrower.getBook() == null) {
                 Loan loan = new Loan(book, borrower);
@@ -112,7 +122,7 @@ public class Library
             Book book = (Book)it.next();
             if(book.getCatalogueNumber() == catalogueNumber){
                 this.book = book;
-                System.out.println("책찾음" + this.book.getCatalogueNumber());
+                System.out.println("findtheBook" + this.book.getCatalogueNumber());
                 break;
             }
         }
@@ -138,5 +148,6 @@ public class Library
         }
 
     }
+
 }
 

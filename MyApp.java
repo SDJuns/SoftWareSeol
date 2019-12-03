@@ -1,15 +1,16 @@
 import java.util.*;
+import javax.swing.*;
+import java.awt.*;
 /**
  * Write a description of class MyApp here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class MyApp
+public class MyApp extends JFrame
 {
     public static void main(String[] args)
     {
-
         Library li = new Library();
         System.out.println("******** 도서관 프로그램 ********");
         System.out.println("\n\n");
@@ -46,18 +47,18 @@ public class MyApp
             }
             else if(select == 3){
                 System.out.println("대출가능한 책을 출력합니다. \n");
-                li.displayBooksOnLoan();
+                li.displayBooksForLoan();
             }
             else if(select == 4){
                 System.out.println("대출중인 책을 출력합니다. \n");
-                li.displayBooksForLoan();
+                li.displayBooksOnLoan();
             }
             else if(select == 5){
-                System.out.println("사용자의 이름을 입력해 ");  
+                System.out.println("사용자의 이름을 입력해 :");  
                 String title = scanner.next();
                 System.out.println("책 고유번호를 입력하세요 : ");
                 int catalogueNumber = scanner.nextInt();
-                li.LeadOneBook(title,catalogueNumber);
+                li.LendOneBook(title,catalogueNumber);
             }
             else if(select == 6){
                 System.out.println("책을 반납합니다. "); 
@@ -68,4 +69,5 @@ public class MyApp
         }
 
     }
+    
 }
