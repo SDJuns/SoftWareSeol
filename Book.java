@@ -12,8 +12,9 @@ public class Book implements Comparable<Book>
     private String author;
     private String title;
     private Borrower borrower = null;
+    private String rsvBorrowerName = null;
     int a = 0;
-    
+
     public Book(String title, String author, int catalogueNumber){
         this.title = title;
         this.author = author;
@@ -24,6 +25,10 @@ public class Book implements Comparable<Book>
         System.out.println("Title :" + title);
         System.out.println("Author :" + author);
         System.out.println("catalogue Numer: " + catalogueNumber);
+    }
+    
+    public void returndate(){
+        System.out.println("반납일은 대출일로부터 2주 뒤 입니다.");
     }
 
     public void attachBorrower(Borrower borrower){
@@ -48,5 +53,22 @@ public class Book implements Comparable<Book>
 
     public Borrower getborrower(){
         return this.borrower;
+    }
+
+    public void ReservationattachBorrower(String name){
+        this.rsvBorrowerName = name;
+    }
+
+    public String getRsvBorrowerName(){
+        return this.rsvBorrowerName;
+    }
+
+    public void rsvDisplay(){
+        if((rsvBorrowerName != null)){
+            System.out.println("예약중인 책입니다.");
+        }
+        else{
+            System.out.println("예약가능한 책입니다.");
+        }
     }
 }
