@@ -21,7 +21,7 @@ public class Book implements Comparable<Book>
     }
 
     public void display(){
-        System.out.println("Title :" + title);
+        System.out.println("\nTitle :" + title);
         System.out.println("Author :" + author);
         System.out.println("catalogue Numer: " + catalogueNumber);
     }
