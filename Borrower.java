@@ -9,34 +9,17 @@ public class Borrower
 {
     private String name;
     private LinkedList<Book> borrowedBooks;
-
-
     private Book book;
-    public Borrower(String name,Book book){
-
-    }
+    
     public Borrower(String name){
         this.name = name;
- 
-    }
-
-    public void attachBorrower(Borrower borower){
-        this.book = book;
-    }
-
-    public void detachBorrower(Borrower borrower){
-        this.book = null;
-    } 
-
-    public void findBorrower(String name){
-
     }
 
     public void attachBook(Book book){
         this.book = book;
     }
 
-    public void detachBorrower(Book book){
+    public void detachBook(Book book){
         this.book = null;
     } 
 
@@ -44,6 +27,7 @@ public class Borrower
         return this.name;
     }
 
-    public void findborrower(String name){
+    public Book getBook(){
+        return this.book;
     }
 }

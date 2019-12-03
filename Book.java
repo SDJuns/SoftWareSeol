@@ -11,8 +11,9 @@ public class Book implements Comparable<Book>
     private int catalogueNumber;
     private String author;
     private String title;
-    private Borrower borrower;
-
+    private Borrower borrower = null;
+    int a = 0;
+    
     public Book(String title, String author, int catalogueNumber){
         this.title = title;
         this.author = author;
@@ -23,34 +24,29 @@ public class Book implements Comparable<Book>
         System.out.println("Title :" + title);
         System.out.println("Author :" + author);
         System.out.println("catalogue Numer: " + catalogueNumber);
-
     }
-    
-    public void attachBorrower(Borrower borower){
+
+    public void attachBorrower(Borrower borrower){
         this.borrower = borrower;
     }
-    
+
     public void detachBorrower(Borrower borrower){
         this.borrower = null;
     } 
-    
-    
+
     public int getCatalogueNumber(){
         return this.catalogueNumber;
     }
 
-    public void findbook(int catalogueNumber){
-        
-    }
-    
     public Borrower getBorrower(){
         return this.borrower;
     }
-    
+
     public int compareTo(Book book) {
-        // 오름차순 
-        //return this.price - compareBook.price;
-        // 내림차순 
-        return 0;
+        return (this.catalogueNumber - book.catalogueNumber);
+    }
+
+    public Borrower getborrower(){
+        return this.borrower;
     }
 }

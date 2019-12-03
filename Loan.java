@@ -7,19 +7,27 @@
  */
 public class Loan
 {
-    private String Loandate;
     private String Returndate;
-    private String name;
-    private int catalogueNumber;
+    private Book book;
+    private Borrower borrower;
     
    
     
     public Loan(Book book, Borrower borrower){
+        this.book = book;
+        this.borrower = borrower;
+    }
+    
+    public void returndate(){
         
     }
     
-    public void findLoan(Book book){
-        
+    public Book getBook(){
+        return this.book;
+    }
+    
+    public Borrower getBorrower(){
+        return this.borrower;
     }
     
     
