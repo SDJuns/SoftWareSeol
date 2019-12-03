@@ -23,8 +23,9 @@ public class MyApp
             System.out.println("3. 대출가능서적 출력");
             System.out.println("4. 대출 중 서적 출력");
             System.out.println("5. 대출");
-            System.out.println("6. 반납\n");
-            System.out.println("선택하시오(0~6)");
+            System.out.println("6. 반납");
+            System.out.println("7. 예약\n");
+            System.out.println("선택하시오(0~7)");
             int select = scanner.nextInt();
             if(select == 0){
                 pro = false;
@@ -46,13 +47,13 @@ public class MyApp
             else if(select == 3){
                 System.out.println("****************"); 
                 System.out.println("대출가능한 책을 출력합니다.");
-                li.displayBooksOnLoan();
+                li.displayBooksForLoan();
                 System.out.println("****************"); 
             }
             else if(select == 4){
                 System.out.println("****************"); 
                 System.out.println("대출중인 책을 출력합니다.");
-                li.displayBooksForLoan();
+                li.displayBooksOnLoan();
                 System.out.println("****************"); 
             }
             else if(select == 5){
@@ -66,6 +67,13 @@ public class MyApp
                 System.out.print("책 고유번호를 입력하세요 : ");
                 int catalogueNumber = scanner.nextInt();
                 li.returnOneBook(catalogueNumber);
+            }
+            else if(select == 7){
+                System.out.print("사용자의 이름을 입력하세요 : ");
+                String name = scanner.next();
+                System.out.print("책 고유번호를 입력하세요 : ");
+                int catalogueNumber = scanner.nextInt();
+                li.reservation(name, catalogueNumber);
             }
         }
 

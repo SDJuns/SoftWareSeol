@@ -11,6 +11,7 @@ public class Borrower
     private String name;
     private LinkedList<Book> borrowedBooks;
     private Book book;
+    private int rsvBookCatalogueNumber;
     
     public Borrower(String name){
         this.name = name;
@@ -30,6 +31,14 @@ public class Borrower
 
     public Book getBook(){
         return this.book;
+    }
+    
+    public void ReservationattachBorrower(int catalogueNumber){
+        this.rsvBookCatalogueNumber = catalogueNumber;
+    }
+    
+    public int getRsvBookCatalogueNumber(){
+        return this.rsvBookCatalogueNumber;
     }
 }
 

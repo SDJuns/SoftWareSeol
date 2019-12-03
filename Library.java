@@ -9,9 +9,11 @@ import java.lang.*;
 public class Library 
 {
     private Boolean check = false;
+    private Boolean RSV = false; 
     private TreeSet<Book> registeredBooks;
     private HashSet<Borrower> registeredBorrowers;
     private HashSet<Loan> registeredLoans;
+    private HashSet<Reservation> resgiteredReservations;
     private Book book;
     private Borrower borrower;
     private Loan loan;
@@ -20,6 +22,7 @@ public class Library
         registeredBooks = new TreeSet<Book>();
         registeredBorrowers = new HashSet<Borrower>();
         registeredLoans = new HashSet<Loan>();
+        resgiteredReservations = new HashSet<Reservation>();
     }
 
     public void registerOneBorrower(String name){
@@ -49,28 +52,31 @@ public class Library
 
     //Loan객체와 관련이 있는지 물어보기
     //관련있으면 보여주기 없으면 안보여주기
+    public void displayBooksForLoan(){
+        Iterator it = registeredBooks.iterator();
+        while(it.hasNext()){
+            Book book = (Book)it.next();
+            if((book.getBorrower())==null && book.getRsvBorrowerName()==null){
+                book.display();
+                System.out.println();
+            }
+            else{
+                
+            }
+        }
+    }
+
     public void displayBooksOnLoan(){
         Iterator it = registeredBooks.iterator();
         while(it.hasNext()){
             Book book = (Book)it.next();
             if((book.getBorrower())==null){
-                book.display();
+                
             }
-            else{
-
-            }
-        }
-    }
-
-    public void displayBooksForLoan(){
-        Iterator it = registeredBooks.iterator();
-        while(it.hasNext()){
-            Book book = (Book)it.next();
-            if((book.getBorrower())==null){
-
-            }
+            
             else{
                 book.display();
+                book.rsvDisplay();
             }
         }
     }
@@ -106,8 +112,8 @@ public class Library
                 System.out.println("책 정보");
                 this.book.display();
                 System.out.println("\n대출 등록 완료되었습니다.");
+                book.returndate();
                 System.out.println("********************");
-                //loan.returndate();
             }
         }
         else if(this.book==null){
@@ -151,6 +157,30 @@ public class Library
         }
         if(this.book==null){
             System.out.println("책을 찾을 수 없습니다.");
+        }
+    }
+
+    public void reservation(String name, int catalogueNumber){
+        Iterator itloan = registeredLoans.iterator();
+        while(itloan.hasNext()){
+            Loan loan = (Loan)itloan.next();
+            if((loan.getBook().getCatalogueNumber() == catalogueNumber) && loan.getReservation() == null){
+                Reservation reservation = new Reservation(name, catalogueNumber);
+
+                book.ReservationattachBorrower(reservation.getName());
+                borrower.ReservationattachBorrower(reservation.getCatalogueNumber());
+                loan.ReservationattachReservation(reservation);
+
+                resgiteredReservations.add(reservation);
+                RSV = true;
+            }
+        }
+        if(this.RSV == true){
+            System.out.println("예약이 완료되었습니다.");
+            this.RSV = false;
+        }
+        else if(this.RSV == false){
+            System.out.println("대출중인 책이 아니거나 등록된 책이 아닙니다.");
         }
     }
 }

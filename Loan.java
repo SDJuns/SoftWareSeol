@@ -11,6 +11,7 @@ public class Loan
     private Book book;
     private Borrower borrower;
     
+    private Reservation reservation = null;
    
     
     public Loan(Book book, Borrower borrower){
@@ -18,9 +19,7 @@ public class Loan
         this.borrower = borrower;
     }
     
-    public void returndate(){
-        
-    }
+    
     
     public Book getBook(){
         return this.book;
@@ -29,6 +28,16 @@ public class Loan
     public Borrower getBorrower(){
         return this.borrower;
     }
+    
+    public void ReservationattachReservation(Reservation reservation){
+        this.reservation = reservation;
+    }
+    
+    public Reservation getReservation(){
+        return this.reservation;
+    }
+    
+    
     
     
 }
