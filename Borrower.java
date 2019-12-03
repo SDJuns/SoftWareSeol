@@ -11,7 +11,7 @@ public class Borrower
     private LinkedList<Book> borrowedBooks;
     private Book book; 
 
-    public Borrower(String name){
+    publoic Borrwer(String name){
         this.name = name;
  
     }
@@ -38,6 +38,10 @@ public class Borrower
 
     public String getName(){
         return this.name;
+    }
+    
+    public Book getBook(Book book){
+        return this.book;
     }
 
     public void findborrower(String name){

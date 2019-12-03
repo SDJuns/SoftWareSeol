@@ -11,6 +11,8 @@ public class Library
     private TreeSet<Book> registeredBooks;
     private HashSet<Borrower> registeredBorrowers;
     private LinkedList<Loan> registeredLoans;
+    private Book book;
+    private Borrower borrower;
 
     public Library(String name){
         this.name = name;
@@ -59,9 +61,9 @@ public class Library
     public void LeadOneBook(String name, int catalogueNumber){
         Iterator it = registeredBooks.iterator();
         while(it.hasNext()){
-            Book book = (Book)it.next();
+            book = (Book)it.next();
             if((book.getCatalogueNumber() == catalogueNumber)){
-                Book findedbook = book;
+                
                 break;
             }
         }
@@ -69,15 +71,15 @@ public class Library
 
         Iterator it2 = registeredBorrowers.iterator();
         while(it2.hasNext()){
-            Borrower borrower = (Borrower)it2.next();
+            borrower = (Borrower)it2.next();
             if((borrower.getName() == name)){
-                Borrower findedborrower = borrower;
+                
                 break;
             }
         }
 
-        if(findedbook!=null && findedborrower!=null){
-            if(book.getborrower() == null && borrower.getbook() == null) {
+        if(book!=null && borrower!=null){
+            if((book.getBorrower() == null && borrower.getBook() == null)) {
                 Loan loan = new Loan(book, borrower);
                 book.attachBorrower(borrower);
                 borrower.attachBook(book);
@@ -115,7 +117,7 @@ public class Library
         }
         
         if(book!=null && borrower!=null){
-            if(book.getborrower() == null && borrower.getbook() == null) {
+            if(book.getBorrower() == null && borrower.getBook() == null) {
                 book.attachBorrower(borrower);
                 borrower.attachBook(book);
                 loan.returndate();
